@@ -3,25 +3,22 @@
 int a[8]={0,4,4,0,0,2,4,4};
 int value = 4;
 
-int * solution();
+int removeElement(int* nums, int numsSize, int val);
 
 int main(){
-    solution();
+    removeElement(a, 8, value);
+
     return 0;
 }
 
-int* solution(){
-    int count = 0;
-    for(int i=0; i<8; ++i){
-        if(a[i]!=value) count++;
-    }
-    int * res = (int*)malloc(sizeof(int)*count);
-    int * temp = res;
-    for(int i=0; i<8; ++i){
-        if(a[i]!=value){
-            *temp = a[i];
-            ++temp;
+int removeElement(int* nums, int numsSize, int val) {
+    int e = numsSize;
+    for(int i=0; i<e; ++i){
+        if(nums[i]==val){
+            nums[i] = nums[e-1];
+            --e;
+            --i;
         }
     }
-    return res;
+    return e;
 }
