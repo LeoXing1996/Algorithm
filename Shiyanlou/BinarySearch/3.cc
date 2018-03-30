@@ -10,24 +10,24 @@ private:
         int lb = -1;
         int hb = nums.size();
         int mid = lb + (hb - lb)/2;
-        while(lb<hb){
+        while(lb+1<hb){
             if(nums[mid]>=tar) hb = mid;
-            else lb = mid+1;
+            else lb = mid;
             mid = lb + (hb - lb)/2;
         }
-        return lb;
+        return hb;
     }
 
     int higherBound(vector<int>&nums, int low){
         int lb = low;
         int hb = nums.size();
         int mid = lb + (hb - lb)/2;
-        while(lb<hb){
+        while(lb+1<hb){
             if(nums[mid]<=tar) lb = mid;
-            else hb = mid-1;
+            else hb = mid;
             mid = lb + (hb - lb)/2;
         }
-        return hb;
+        return lb;
     }
 public:
     vector<int> searchRange(vector<int>& nums, int target){
