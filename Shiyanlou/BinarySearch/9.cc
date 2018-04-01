@@ -48,9 +48,7 @@ public:
 int main(){
     vector<int>A = {1,2,3,4,5,6};
     vector<int>B = {2,3,4,5};
-    // Solution sol;
-    // cout  << sol.findMedianSortedArrays(A, B);
-    int a = 0;
-    cout << a/2;
+    Solution sol;
+    cout  << sol.findMedianSortedArrays(A, B);
     return 0;
 }
