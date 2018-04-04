@@ -1,4 +1,4 @@
 *.exe
 /.vscode
 Shiyanlou/Array/vec.cc
-Shiyanlou/Array/test.cc
+test.cc
