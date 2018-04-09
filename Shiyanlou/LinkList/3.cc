@@ -57,14 +57,13 @@ public:
         return new_head->next;
     }
     ListNode* partition2(ListNode* head, int x){
-        ListNode head1(0);
-        ListNode head2(0);
+        // ListNode head1(0);
+        // ListNode head2(0);
         ListNode *curr = head;
-        ListNode *h1 = &head1;
-        ListNode *h2 = &head2;
+        ListNode *h1 = new ListNode(0);
+        ListNode *h2 = new ListNode(0);
         ListNode *r1 = h1;
         ListNode *r2 = h2;
-        // ListNode *rear = head;
         while(curr){
             ListNode* temp = curr->next;
             if(curr->val < x) {
