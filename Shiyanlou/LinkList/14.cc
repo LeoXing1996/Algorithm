@@ -32,6 +32,37 @@ public:
         }
         return nhead->next;
     }
+    RandomListNode * copyRandomList2(RandomListNode * head){
+        map<RandomListNode *, RandomListNode *>hash;
+
+        RandomListNode * nhead = new RandomListNode(0);
+        RandomListNode * rear = nhead;
+        for(RandomListNode * pt = head; pt; pt = pt->next){
+            auto search = hash.find(pt);
+            RandomListNode * temp;
+            temp = (search == hash.end()) ? new RandomListNode(pt->label) : search->second ;
+
+            // if(search == hash.end()) temp = new RandomListNode(pt->label);
+            // else temp = search->second;
+            rear->next = temp;
+            rear =temp;
+            if(pt->random){
+                auto seaR = hash.find(pt->random);
+                RandomListNode * nrand;
+                if(seaR == hash.end()){
+                    nrand = new RandomListNode(pt->random->label);
+                    temp->random = nrand;
+                    hash[pt->random] = nrand;
+                } else {
+                    temp->random = seaR->second;
+                }
+            }
+        }
+        return nhead->next;
+    }
+    RandomListNode * copyRandomList3(RandomListNode * head){
+        
+    }
 };
 
 int main(){
@@ -47,6 +78,6 @@ int main(){
 
     Solution sol;
 
-    RandomListNode * nhead = sol.copyRandomList(&n1);
+    RandomListNode * nhead = sol.copyRandomList2(&n1);
     return 0;
 }
