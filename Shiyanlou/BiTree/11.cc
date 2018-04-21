@@ -27,6 +27,11 @@ private:
                     root_i = i;
                     break;
                 }
+            // preOrder: [root l ... l r ... r]
+            // inOrder:  [l ... l root r ... r]
+            // 找到 inOrder 中 root 的位置后 其前驱结点并未是 preOrder 中左子树的末尾节点
+            // 因为 左子树可能全部为左侧树，其末 inOrder 的末结点为左子树的根结点
+            // 因此使用结点个数来进行划分 方便准确复杂度低~~
             int right_p = root_i-in_s +  pre_s + 1;
             
             root->left = findRoot(preorder, pre_s+1, right_p-1, inorder, in_s, root_i-1);
