@@ -9,8 +9,9 @@ public:
     string serialize(TreeNode * root) {
         if(!root) return NULL;
         string res = to_string(root->val);
-        
+        res += ',';
         buildStr(res, root);
+        res = res.substr(0, res.size()-1);
         return res;
     }
     TreeNode * deserialize(string &data) {
@@ -38,12 +39,14 @@ private:
         // 生成左子树结果
         if(root->left) {
             data += to_string(root->left->val);
+            data += ',';
             buildStr(data, root->left);
-        } else data += '#';
+        } else data += "#,";
         if(root->right){
             data += to_string(root->right->val);
+            data += ',';
             buildStr(data, root->right);
-        } else data += '#';
+        } else data += "#,";
     }
 
     void buildTree(string & data, TreeNode* &root){
@@ -67,5 +70,10 @@ private:
 };
 
 int main(){
-
+    Solution sol;
+    string tree = "1,2,3,#,#,#,4,5,#,#,#";
+    TreeNode * root = sol.deserialize(tree);
+    string tree_ = sol.serialize(root);
+    cout << tree_ << endl;
+    return 0;
 }
