@@ -139,7 +139,7 @@ public:
             // 一个循环之后将A[i]减少一个 表示后续A[i]不会再出现
             // 因此使用 generateNum 对 哈希表 进行循环时, 指会循环j之后的元素
 
-            if (m[A[i]] == 0) m.erase(A[i]);
+            if (m[A[i]] == 0) m.erase(A[i]);    // 防止累乘结果为0
         }
         return index;
     }
