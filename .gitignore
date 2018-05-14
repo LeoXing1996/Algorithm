@@ -3,3 +3,4 @@
 Shiyanlou/Array/vec.cc
 test.cc
 *.png
+*.gdb
