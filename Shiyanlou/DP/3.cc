@@ -4,6 +4,7 @@
 using namespace std;
 
 class Solution{
+public:
     int packII(int m, vector<int> & A, vector<int> & V){
         int n = A.size();
         int dp[m+1][n] ;
@@ -23,4 +24,10 @@ class Solution{
     }
 };
 
-int main(){}
+int main(){
+    vector<int> A = {2,3,5,7};
+    vector<int> V = {1,5,2,4};
+    int m = 10;
+    Solution sol;
+    cout << sol.packII(m, A, V);
+}
